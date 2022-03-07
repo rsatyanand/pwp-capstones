@@ -1,8 +1,9 @@
 # Kia ora.  
-# This calculator was written for playing back 
-# audio with QTake HD in combination with either 
-# a Lexicon MX200 or an EHX Pitch Fork +. Please
-# run with python3.  eg python3 PATH/TimeWarp.py
+# This calculator was intended for recording 
+# and playing back off-speed audio with QTake HD
+# in combination with either a Lexicon MX200 or an
+# EHX Pitch Fork +. Please run with python3.  
+# eg python3 PATH/TimeWarp.py
 #
 # Questions and comments to
 # Rohan Satyanand 
@@ -12,11 +13,9 @@
 print("\nWelcome to TimeWarp! \nType q to quit\n")
 import math
 
-    
-
 inFPS = input("Project FPS:  ")
 if inFPS == "q":
-    print()
+    pass
 else:
     fps = eval(inFPS)
     
@@ -29,17 +28,15 @@ else:
             rec = float(inrec[:-1]) / 100
         else: 
             rec = eval(inrec)
-        
+            
         inpb = input("Playback speed: ")
         if inpb == "q":
             break
         elif inpb[-1] == "%":
-                inpbpc = float(inpb[:-1]) * rec / 100
-                pb = float(inpbpc)
+                pb = float(inpb[:-1]) / 100
         else:
             pb = eval(inpb)
             
-
         recsemitones = round(12 * math.log(1 / abs(rec), 2))
         pbsemitones = round(12 * math.log(1 / abs(pb), 2))
         
@@ -144,6 +141,5 @@ else:
                 print(intervals[pbsemitones],"\n")
             
         print("-----------------------\n")
-
 
 print("\nNgaa mihi\n")
